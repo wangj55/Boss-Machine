@@ -1,8 +1,8 @@
 const express = require('express');
-const apiRouter = express.Router();
+const router = express.Router();
 
-apiRouter.use("/minions", require("./routes/minions"));
-apiRouter.use("/ideas", require("./routes/ideas"));
-apiRouter.use("/meetings", require("./routes/meetings"));
+router.use("/minions", require("./routes/minions"));
+router.use("/ideas", require("./routes/ideas"));
+router.use("/meetings", require("./routes/meetings"));
 
-module.exports = apiRouter;
+module.exports = router;

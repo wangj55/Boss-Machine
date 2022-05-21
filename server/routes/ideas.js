@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../db");
+const checkMillionDollarIdea = require("../checkMillionDollarIdea");
 
 const model = "ideas";
 
@@ -22,7 +23,7 @@ router.get("/:ideaId", (req, res) => {
     res.send(db.getFromDatabaseById(model, req.ideaId));
 });
 
-router.post("", (req, res) => {
+router.post("", checkMillionDollarIdea, (req, res) => {
     const newItem = db.addToDatabase(model, req.body);
     if (newItem) {
         res.status(201).send(newItem);
@@ -31,7 +32,7 @@ router.post("", (req, res) => {
     }
 });
 
-router.put("/:ideaId", (req, res) => {
+router.put("/:ideaId", checkMillionDollarIdea, (req, res) => {
     res.send(db.updateInstanceInDatabase(model, req.body));
 });
 

@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db");
 
+const workRouter = require("./work");
+router.use("/:minionId/work", workRouter);
+
 const model = "minions";
 
 router.param("minionId", (req, res, next, id) => {
